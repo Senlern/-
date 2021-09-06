@@ -5,8 +5,9 @@ using UnityEngine.AI;
 
 public class Hero : MonoBehaviour {
     public NavMeshAgent agent;
-	// Use this for initialization
-	void Start () {
+    public Animator animator;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -21,5 +22,7 @@ public class Hero : MonoBehaviour {
                 agent.SetDestination(hit.point);
             }
         }
-	}
+        //切换人物动画
+        animator.SetFloat("speed", agent.velocity.magnitude);
+    }
 }
